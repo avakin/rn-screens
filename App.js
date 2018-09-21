@@ -18,7 +18,6 @@ import {
 import ListItem from "./src/components/List.js";
 import appImage from "./src/assets/forest.jpg";
 import TaskModal from "./src/components/Modal.js";
-import Feather from "react-native-vector-icons";
 
 class App extends React.Component {
   constructor(props) {
@@ -75,8 +74,6 @@ class App extends React.Component {
     //         }),
     //         selectedTask: null,
     // }));
-    console.log("removed");
-
     this.props.onRemoveItem(key);
   };
   closeModalInfo = () => {
@@ -96,7 +93,6 @@ class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <Feather name="x" size={25} /> */}
         <TaskModal
           dataClosed={this.closeModalInfo}
           dataRemove={this.removeItemFromList}
