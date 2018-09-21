@@ -1,18 +1,11 @@
 {
     "logs": [
         {
-            "outputFile": "/home/quantum/test-rn/seconday/first/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "/home/quantum/test-rn/taskapp/React-Native/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/home/quantum/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/0788fc26833fe2c3fd7bb8a2c150bea9/res/values-h720dp/values-h720dp.xml",
+                    "source": "/home/quantum/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.1.aar/745f84384e482f115012b80f7adb79ee/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "4",
-                        "startOffsets": "283",
-                        "endColumns": "66",
-                        "endOffsets": "345"
-                    },
-                    "to": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
