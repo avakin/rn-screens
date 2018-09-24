@@ -9,6 +9,8 @@ import {
   TouchableOpacity
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import { createStackNavigator } from "react-navigation";
+import Details from "./Details";
 export default class TaskModal extends React.Component {
   constructor(props) {
     super(props);
@@ -55,6 +57,7 @@ export default class TaskModal extends React.Component {
             </View>
           </TouchableOpacity>
         </View>
+        {/* <Details /> */}
       </Modal>
     );
   }
