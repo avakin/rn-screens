@@ -40,7 +40,7 @@ const DrawerComponentConnected = props => {
             name="input"
             size={30}
             color="#fff"
-            onPress={() => console.log(props.navigation.navigate("Auth"))}
+            onPress={() => props.navigation.navigate("Auth")}
           />
         </View>
       </View>
