@@ -10,10 +10,10 @@ import FindTask from "./FindTask.js";
 
 export default createBottomTabNavigator(
   {
-    Share: {
+    Add: {
       screen: ShareTask
     },
-    Find: {
+    List: {
       screen: FindTask
     }
   },
@@ -21,11 +21,13 @@ export default createBottomTabNavigator(
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
+        console.log(navigation);
+
         let iconName;
-        if (routeName === "Share") {
-          iconName = `share`;
-        } else if (routeName === "Find") {
-          iconName = `place`;
+        if (routeName === "Add") {
+          iconName = `add`;
+        } else if (routeName === "List") {
+          iconName = `list`;
         }
 
         // You can return any component that you like here! We usually use an
@@ -37,5 +39,8 @@ export default createBottomTabNavigator(
       activeTintColor: "#2196f3",
       inactiveTintColor: "gray"
     }
+    // initialRouteParams: {
+    //   id: 99
+    // }
   }
 );

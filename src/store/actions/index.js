@@ -1,2 +1,8 @@
-import { addItem, removeItem, selectItem, deselectItem } from './items.js';
-export {addItem, removeItem, selectItem, deselectItem}
+import {
+  addItem,
+  removeItem,
+  selectItem,
+  deselectItem,
+  savingUser
+} from "./items.js";
+export { addItem, removeItem, selectItem, deselectItem, savingUser };
