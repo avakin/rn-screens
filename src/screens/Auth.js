@@ -1,8 +1,12 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Button, TextInput } from "react-native";
+import { View, Text, StyleSheet, Button, ImageBackground } from "react-native";
 import connect from "react-redux/lib/connect/connect";
 import { savingUser } from "../../src/store/actions/items";
 // import Icon from "react-native-vector-icons/MaterialIcons";
+import DefaultInput from "../components/UI/DefaultInput.js";
+import DefaultHeading from "../components/UI/HeadingText.js";
+import BackgroundImage from "../assets/background.png";
+import ButtonWithBackground from "../components/UI/ButtonWithBackground.js";
 class AuthScreen extends Component {
   constructor(props) {
     super(props);
@@ -12,14 +16,13 @@ class AuthScreen extends Component {
     };
   }
   checkUser = () => {
-    if (this.state.pass == "superpass") {
-      this.props.navigation.navigate("Home", {
-        id: 86
-      });
-      this.props.onSaveUser(this.state.user);
-    } else {
-      alert("Entried password is invalid");
-    }
+    // if (this.state.pass == "superpass") {
+    //   this.props.navigation.navigate("Home", {});
+    //   this.props.onSaveUser(this.state.user);
+    // } else {
+    //   alert("Entried password is invalid");
+    // }
+    this.props.navigation.navigate("Home", {});
   };
   static navigationOptions = {
     title: "Authorization",
@@ -39,36 +42,78 @@ class AuthScreen extends Component {
   };
   render() {
     return (
-      <View style={authStyles.container}>
-        <Text style={authStyles.title}>Login screen</Text>
-        <TextInput
-          style={{ width: "80%" }}
-          placeholder="login"
-          onChangeText={value => {
-            this.setState({ user: value });
-          }}
-        />
-        <TextInput
-          secureTextEntry={true}
-          style={{ width: "80%" }}
-          placeholder="password"
-          onChangeText={value => {
-            this.setState({ pass: value });
-          }}
-        />
-        <View style={{ marginTop: 30 }}>
-          <Button title="Go to app" onPress={this.checkUser} />
+      <ImageBackground
+        source={BackgroundImage}
+        style={authStyles.backgroundImage}
+      >
+        <View style={authStyles.container}>
+          <DefaultHeading style={authStyles.title}>
+            Sing Up screen
+          </DefaultHeading>
+          <ButtonWithBackground
+            color="#2196f3"
+            onPress={() => console.log("bom bom")}
+            textColor="#fff"
+          >
+            Switch to Login
+          </ButtonWithBackground>
+          <View style={authStyles.inputGroup}>
+            <DefaultInput
+              placeholder="login"
+              onChangeText={value => {
+                this.setState({ user: value });
+              }}
+              style={authStyles.input}
+            />
+            <DefaultInput
+              secureTextEntry={true}
+              placeholder="password"
+              onChangeText={value => {
+                this.setState({ pass: value });
+              }}
+              style={authStyles.input}
+            />
+            <DefaultInput
+              secureTextEntry={true}
+              placeholder="confirm password"
+              onChangeText={value => {
+                this.setState({ confirmPass: value });
+              }}
+              style={authStyles.input}
+            />
+          </View>
+          <View>
+            <ButtonWithBackground
+              onPress={this.checkUser}
+              textColor="#fff"
+              color="#2196f3"
+            >
+              Register
+            </ButtonWithBackground>
+          </View>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
 const authStyles = StyleSheet.create({
   title: {
-    color: "#111",
-    fontWeight: "bold",
-    fontSize: 20,
     marginBottom: 20
+  },
+  inputGroup: {
+    width: "80%",
+    marginTop: 20,
+    marginBottom: 20
+  },
+  button: {
+    color: "#fff"
+  },
+  backgroundImage: {
+    flex: 1,
+    width: "100%"
+  },
+  input: {
+    backgroundColor: "#fff"
   },
   container: {
     flex: 1,

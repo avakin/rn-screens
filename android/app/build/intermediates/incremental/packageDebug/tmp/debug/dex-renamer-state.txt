@@ -1,4 +1,4 @@
-#Tue Sep 25 17:19:13 EEST 2018
+#Wed Sep 26 13:01:32 EEST 2018
 base.0=/home/quantum/test-rn/navigation/React-Native/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.0=classes.dex
 path.0=classes.dex

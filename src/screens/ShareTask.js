@@ -1,7 +1,18 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  TextInput,
+  ScrollView
+} from "react-native";
 import { connect } from "react-redux";
 import { addItem, changePlaceholder } from "../../src/store/actions/items";
+import DefaultInput from "../components/UI/DefaultInput.js";
+import DefaultHeading from "../components/UI/HeadingText";
+import PickImage from "../components/PickImage";
+import PickLocation from "../components/PickLocation";
 
 class ShareTask extends React.Component {
   constructor(props) {
@@ -23,39 +34,37 @@ class ShareTask extends React.Component {
   };
   render() {
     return (
-      <View style={TabStyle.container}>
-        <Text style={TabStyle.title}>Share tasks</Text>
-        <View style={TabStyle.inputGroup}>
-          <TextInput
-            style={TabStyle.input}
+      <ScrollView>
+        <View style={TabStyle.container}>
+          <DefaultHeading style={TabStyle.title}>Adding Tasks</DefaultHeading>
+          <PickImage />
+          <PickLocation />
+          <DefaultInput
+            placeholder="Task Title"
             value={this.props.text}
             onChangeText={value => this.changePlaceholder(value)}
-            placeholder="Write text here"
           />
-          <Button
-            style={TabStyle.button}
-            title="add task"
-            onPress={this.addToList}
-          />
-        </View>
-        {/* <Button
+          <View style={TabStyle.button}>
+            <Button title="add task" onPress={this.addToList} />
+          </View>
+          {/* <Button
           onPress={this.props.navigation.getParam("doLog")}
           title="get function"
         /> */}
-      </View>
+        </View>
+      </ScrollView>
     );
   }
 }
 const TabStyle = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-start",
+    // justifyContent: "flex-start",
     alignItems: "center",
     padding: 10
   },
   title: {
-    fontSize: 16,
-    color: "#111"
+    marginBottom: 20
   },
   inputGroup: {
     width: "100%",
@@ -63,11 +72,9 @@ const TabStyle = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between"
   },
-  input: {
-    width: "70%"
-  },
+
   button: {
-    width: "30%"
+    margin: 10
   }
 });
 const mapStateToProps = state => {
